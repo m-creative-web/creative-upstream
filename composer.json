@@ -11,32 +11,6 @@
         {
             "type": "path",
             "url": "upstream-configuration"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "m-creative-web/creative_paragraphs",
-                "type": "drupal-module",
-                "version": "main",
-                "source": {
-                    "url": "https://github.com/m-creative-web/creative-paragraphs.git",
-                    "type": "git",
-                    "reference": "main"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "m-creative-web/creative",
-                "type": "drupal-theme",
-                "version": "main",
-                "source": {
-                    "url": "https://github.com/m-creative-web/creative-drupal-theme.git",
-                    "type": "git",
-                    "reference": "main"
-                }
-            }
         }
     ],
     "require": {
@@ -57,8 +31,6 @@
         "drupal/twig_tweak": "^3.2",
         "cweagans/composer-patches": "^1.7",
         "drush/drush": "^11 || ^12",
-        "m-creative-web/creative": "main",
-        "m-creative-web/creative_paragraphs": "main",
         "pantheon-systems/drupal-integrations": "^10"
     },
     "require-dev": {
