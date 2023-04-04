@@ -1,0 +1,25 @@
+name: creative
+recipe: drupal10
+config:
+  webroot: web
+  xdebug: true
+services:
+  appserver:
+    type: php:8.2
+    config:
+      php: config/php.ini
+  database:
+    type: mariadb:10.4
+    portforward: 33060
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+tooling:
+  drush:
+    service: appserver
+    env:
+      DRUSH_OPTIONS_URI: "https://drupal-starter.lndo.site"
+proxy:
+  mailhog:
+    - mail.lndo.site

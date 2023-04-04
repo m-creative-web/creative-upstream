@@ -1,6 +1,6 @@
 {
     "name": "pantheon-upstreams/drupal-composer-managed",
-    "description": "Install Drupal 9 with Composer on Pantheon.",
+    "description": "Install Drupal with Composer on Pantheon.",
     "type": "project",
     "license": "MIT",
     "repositories": [
@@ -11,16 +11,55 @@
         {
             "type": "path",
             "url": "upstream-configuration"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "m-creative-web/creative_paragraphs",
+                "type": "drupal-module",
+                "version": "main",
+                "source": {
+                    "url": "https://github.com/m-creative-web/creative-paragraphs.git",
+                    "type": "git",
+                    "reference": "main"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "m-creative-web/creative",
+                "type": "drupal-theme",
+                "version": "main",
+                "source": {
+                    "url": "https://github.com/m-creative-web/creative-drupal-theme.git",
+                    "type": "git",
+                    "reference": "main"
+                }
+            }
         }
     ],
     "require": {
         "pantheon-upstreams/upstream-configuration": "dev-main",
         "composer/installers": "^1.9",
+        "drupal/admin_toolbar": "^3.3",
+        "drupal/block_field": "^1.0@RC",
+        "drupal/config_ignore": "^3.0",
         "drupal/core-composer-scaffold": "^10",
         "drupal/core-recommended": "^10",
-        "pantheon-systems/drupal-integrations": "^10",
+        "drupal/google_tag": "^1.6",
+        "drupal/menu_trail_by_path": "^2.0",
+        "drupal/metatag": "^1.22",
+        "drupal/paragraphs": "^1.15",
+        "drupal/pathauto": "^1.11",
+        "drupal/redirect": "^1.8",
+        "drupal/simple_sitemap": "^4.1",
+        "drupal/twig_tweak": "^3.2",
         "cweagans/composer-patches": "^1.7",
-        "drush/drush": "^11 || ^12"
+        "drush/drush": "^11 || ^12",
+        "m-creative-web/creative": "main",
+        "m-creative-web/creative_paragraphs": "main",
+        "pantheon-systems/drupal-integrations": "^10"
     },
     "require-dev": {
         "drupal/core-dev": "^10"
@@ -28,7 +67,7 @@
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
         "drupal-scaffold": {

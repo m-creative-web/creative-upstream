@@ -11,3 +11,46 @@ protected_web_paths:
   - /private/
   - /sites/default/files/private/
   - /sites/default/files/config/
+workflows:
+  sync_code:
+    after:
+      - type: webphp
+        description: Clear caches
+        script: private/scripts/drush_cr.php
+      - type: webphp
+        description: Update database
+        script: private/scripts/drush_updb.php
+      - type: webphp
+        description: Import config
+        script: private/scripts/drush_cim.php
+      - type: webphp
+        description: Clear caches
+        script: private/scripts/drush_cr.php
+  clone_database:
+    after:
+      - type: webphp
+        description: Clear caches
+        script: private/scripts/drush_cr.php
+      - type: webphp
+        description: Update database
+        script: private/scripts/drush_updb.php
+      - type: webphp
+        description: Import config
+        script: private/scripts/drush_cim.php
+      - type: webphp
+        description: Clear caches
+        script: private/scripts/drush_cr.php
+  deploy:
+    after:
+      - type: webphp
+        description: Clear caches
+        script: private/scripts/drush_cr.php
+      - type: webphp
+        description: Update database
+        script: private/scripts/drush_updb.php
+      - type: webphp
+        description: Import config
+        script: private/scripts/drush_cim.php
+      - type: webphp
+        description: Clear caches
+        script: private/scripts/drush_cr.php
